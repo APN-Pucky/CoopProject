@@ -4,6 +4,9 @@ public class Test
 {
 	public static void main(String[] args)
 	{
-		//PC comment
+		int i = 0;
+		while(true) {
+			System.out.println("Zahl: \t" + i++);
+		}
 	}
 }
