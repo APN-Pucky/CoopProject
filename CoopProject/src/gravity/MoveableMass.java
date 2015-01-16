@@ -13,7 +13,7 @@ public class MoveableMass extends GLKugel {
 		super(pPosition, 1);
 		initial();
 	}
-	public void initial(double mass) {
+	public void initial() {
 		speed = new GLVektor(0,0,0);
 		force = new GLVektor(0,0,0);
 	}
