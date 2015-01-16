@@ -5,7 +5,7 @@ import GLOOP.GLTextur;
 import GLOOP.GLVektor;
 
 public class MoveableMass extends GLKugel {
-
+	GLVektor speed, force;
 	public MoveableMass(GLVektor pPosition, double pRadius) {
 		super(pPosition, pRadius);
 	}
