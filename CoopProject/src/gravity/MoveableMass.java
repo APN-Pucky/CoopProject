@@ -19,10 +19,11 @@ public class MoveableMass extends GLKugel {
 	}
 	public void setMass(double pMass) {
 		this.mass = mass;
-		
+		this.setzeSkalierung(Math.pow((3/4) * mass / matter.getDichte() / Math.PI,1/3));
 	}
 	public void setRadius(double pRadius) {
 		this.setzeSkalierung(pRadius);
 		double volume = (4/3) * Math.PI * Math.pow(pRadius, 3);
+		mass = volume * matter.getDichte();
 	}
 }
