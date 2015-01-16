@@ -6,40 +6,23 @@ import GLOOP.GLVektor;
 
 public class MoveableMass extends GLKugel {
 	GLVektor speed, force;
+	double mass;
+	Material matter;
 	
-	public MoveableMass(GLVektor pPosition, double pRadius) {
-		super(pPosition, pRadius);
+	public MoveableMass(GLVektor pPosition, Material matter, double mass) {
+		super(pPosition, 1);
 		initial();
 	}
-
-	public MoveableMass(GLVektor pPosition, double pRadius, GLTextur pTextur) {
-		super(pPosition, pRadius, pTextur);
-		initial();
-	}
-
-	public MoveableMass(GLVektor pPosition, double pRadius, String pTextur) {
-		super(pPosition, pRadius, pTextur);
-		initial();
-	}
-
-	public MoveableMass(double pX, double pY, double pZ, double pRadius) {
-		super(pX, pY, pZ, pRadius);
-		initial();
-	}
-
-	public MoveableMass(double pX, double pY, double pZ, double pRadius,
-			GLTextur pT) {
-		super(pX, pY, pZ, pRadius, pT);
-		initial();
-	}
-
-	public MoveableMass(double pX, double pY, double pZ, double pRadius,
-			String pTextur) {
-		super(pX, pY, pZ, pRadius, pTextur);
-		initial();
-	}
-	public void initial() {
+	public void initial(double mass) {
 		speed = new GLVektor(0,0,0);
 		force = new GLVektor(0,0,0);
+	}
+	public void setMass(double pMass) {
+		this.mass = mass;
+		
+	}
+	public void setRadius(double pRadius) {
+		this.setzeSkalierung(pRadius);
+		double volume = (4/3) * Math.PI * Math.pow(pRadius, 3);
 	}
 }
