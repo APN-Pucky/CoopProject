@@ -38,9 +38,7 @@ public class MoveableMass extends GLKugel implements Updateable {
 		mass = volume * matter.getDensity();
 	}
 	public void setForce(GLVektor pForce) {
-		//synchronized(force) {
 			this.force = pForce;
-		//}
 	}
 	public void calcSpeed(double time) {
 		GLVektor pForce = new GLVektor(force);
