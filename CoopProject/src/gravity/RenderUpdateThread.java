@@ -16,11 +16,11 @@ public class RenderUpdateThread extends Thread
 	
 	public void run()
 	{
-		lasttime = System.nanoTime()/1_000_000_000;
+		lasttime = System.nanoTime()/1_000_000_000D;
 		while(running)
 		{
 			delta = lasttime;
-			lasttime = System.nanoTime()/1_000_000_000;
+			lasttime = System.nanoTime()/1_000_000_000D;
 			delta = lasttime-delta;
 			for(Updateable u : Global.updates)
 			{
