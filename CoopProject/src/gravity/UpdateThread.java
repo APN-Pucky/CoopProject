@@ -22,7 +22,7 @@ public class UpdateThread extends ArrayList<MoveableMass> {
 		}
 	}
 	public void updatePos() {
-		double time = (System.nanoTime() - latestCheck)*1.0 / 1_000_000_000;
+		double time = (System.nanoTime() - latestCheck)/ 1_000_000_000D;
 		for(MoveableMass o : this) {
 			o.calcSpeed(time);
 			o.move(time);
