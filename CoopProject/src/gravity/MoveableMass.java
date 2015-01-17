@@ -23,7 +23,7 @@ public class MoveableMass extends GLKugel {
         this.matter = matter;
     }
 	public void setMass(double pMass) {
-		this.mass = mass;
+		this.mass = pMass;
 		this.setzeSkalierung(Math.pow((3/4) * mass / matter.getDichte() / Math.PI,1/3));
 	}
 //  Matter=null -> NPE
@@ -33,7 +33,9 @@ public class MoveableMass extends GLKugel {
 		mass = volume * matter.getDichte();
 	}
 	synchronized public void setForce(GLVektor pForce) {
-		this.force = pForce;
+		synchronized(force) {
+			this.force = pForce;
+		}
 	}
 	public void calcSpeed(double time) {
 		GLVektor pForce = new GLVektor(force);
