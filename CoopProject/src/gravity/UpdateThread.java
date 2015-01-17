@@ -2,6 +2,8 @@ package gravity;
 
 import java.util.ArrayList;
 
+import GLOOP.GLVektor;
+
 public class UpdateThread extends ArrayList<MoveableMass> {
 	private static final long serialVersionUID = 1584782928231004369L;
 	
@@ -15,6 +17,24 @@ public class UpdateThread extends ArrayList<MoveableMass> {
 	public void addObjects(MoveableMass[] object) {
 		for(MoveableMass o : object) {
 			this.add(o);
+		}
+	}
+	public void calcForce() {
+		for(MoveableMass o : this) {
+			GLVektor pForce = new GLVektor(0,0,0);
+			for(MoveableMass p : this) {
+				if(o != p) {
+					GLVektor ppForce = new GLVektor(p.gibPosition());
+					ppForce.subtrahiere(o.gibPosition());
+					double distance = ppForce.gibBetrag();
+					ppForce.normalisiere();
+					
+					ppForce.multipliziere(o.getMass()*p.getMass()/Math.pow(distance, 2));
+					
+					pForce.addiere(ppForce);
+				}
+			}
+			o.setForce(pForce);
 		}
 	}
 }
