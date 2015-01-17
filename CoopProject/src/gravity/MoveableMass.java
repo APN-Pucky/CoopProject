@@ -5,7 +5,7 @@ import GLOOP.GLKugel;
 import GLOOP.GLVektor;
 
 
-public class MoveableMass extends GLKugel {
+public class MoveableMass extends GLKugel implements Updateable {
 	GLVektor speed, force;
 	double mass;
 	Material matter;
@@ -15,6 +15,8 @@ public class MoveableMass extends GLKugel {
 		initial();
         setMaterial(matter);
         setMass(mass);
+        Global.mma.add(this);
+        Global.updates.add(this);
 	}
 	public void initial() {
 		speed = new GLVektor(0,0,0);
@@ -49,5 +51,27 @@ public class MoveableMass extends GLKugel {
 		GLVektor pSpeed = new GLVektor(speed);
 		pSpeed.multipliziere(time);
 		this.verschiebe(pSpeed);
+	}
+	public void calcForce() {
+		GLVektor pForce = new GLVektor(0,0,0);
+		for(MoveableMass p : Global.mma) {
+			if(this != p) {
+				GLVektor ppForce = new GLVektor(p.gibPosition());
+				ppForce.subtrahiere(gibPosition());
+				double distance = ppForce.gibBetrag();
+				ppForce.normalisiere();
+				
+				ppForce.multipliziere(getMass()*p.getMass()/Math.pow(distance, 2));
+				
+				pForce.addiere(ppForce);
+			}
+		}
+		setForce(pForce);
+	}
+	@Override
+	public void update(double delta) {
+		calcForce();
+		calcSpeed(delta);
+		move(delta);
 	}
 }
