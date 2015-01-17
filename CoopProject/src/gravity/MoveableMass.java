@@ -30,7 +30,6 @@ public class MoveableMass extends GLKugel {
 	public double getMass()  {
 		return mass;
 	}
-//  Matter=null -> NPE
 	public void setRadius(double pRadius) {
 		this.setzeSkalierung(pRadius);
 		double volume = (4/3) * Math.PI * Math.pow(pRadius, 3);
