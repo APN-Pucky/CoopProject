@@ -19,7 +19,7 @@ public class MoveableMass extends GLKugel {
 		speed = new GLVektor(0,0,0);
 		force = new GLVektor(0,0,0);
 	}
-    public void setMaterial(Material matteMr) {
+    public void setMaterial(Material matter) {
         this.matter = matter;
     }
 	public void setMass(double pMass) {
@@ -32,5 +32,11 @@ public class MoveableMass extends GLKugel {
 		this.setzeSkalierung(pRadius);
 		double volume = (4/3) * Math.PI * Math.pow(pRadius, 3);
 		mass = volume * matter.getDichte();
+	}
+	public void setForce(GLVektor pForce) {
+		
+	}
+	public void setSpeed() {
+		
 	}
 }
