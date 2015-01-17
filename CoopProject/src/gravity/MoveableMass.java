@@ -42,7 +42,7 @@ public class MoveableMass extends GLKugel {
 	}
 	public void calcSpeed(double time) {
 		GLVektor pForce = new GLVektor(force);
-		pForce.multipliziere(time);
+		pForce.multipliziere(time/mass);
 		speed.addiere(pForce);
 	}
 	public void move(double time) {
