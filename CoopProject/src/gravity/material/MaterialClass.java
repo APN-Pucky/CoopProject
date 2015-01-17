@@ -11,7 +11,7 @@ class MaterialClass implements Material
 	private String pName;
 	private String name;
 	
-	public MaterialClass(String pName, String name, double density)
+	protected MaterialClass(String name,String pName, double density)
 	{
 		this.name = name;
 		this.pName = pName;

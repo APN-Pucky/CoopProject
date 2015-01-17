@@ -1,5 +1,6 @@
 package test;
 
+import gravity.material.Material;
 import gravity.material.PeriodMaterial;
 import GLOOP.GLKugel;
 import GLOOP.GLLicht;
@@ -10,6 +11,10 @@ public class Test
 {
 	public static void main(String[] args)
 	{
-		System.out.println(PeriodMaterial.Au.getName());
+		
+		Material m = PeriodMaterial.combineMaterial(new Material[]{PeriodMaterial.H,PeriodMaterial.Uuq,PeriodMaterial.H});
+		System.out.println(m.getName());
+		System.out.println(m.getPeriodName());
+		System.out.println(m.getDensity());
 	}
 }
