@@ -1,5 +1,6 @@
 package test;
 
+import gravity.Material;
 import GLOOP.GLKugel;
 import GLOOP.GLLicht;
 import GLOOP.GLMaterial;
@@ -9,9 +10,6 @@ public class Test
 {
 	public static void main(String[] args)
 	{
-		new GLSchwenkkamera();
-		new GLLicht();
-		
-		new GLKugel(0,0,0, 10).setzeMaterial(GLMaterial.GUMMI);
+		System.out.println(Material.Au.getName());
 	}
 }

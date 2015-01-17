@@ -7,9 +7,9 @@ import GLOOP.GLVektor;
 public class MoveableMass extends GLKugel {
 	GLVektor speed, force;
 	double mass;
-	Material matter;
+	MaterialClass matter;
 	
-	public MoveableMass(GLVektor pPosition, Material matter, double mass) {
+	public MoveableMass(GLVektor pPosition, MaterialClass matter, double mass) {
 		super(pPosition, 1);
 		initial();
         setMaterial(matter);
@@ -19,7 +19,7 @@ public class MoveableMass extends GLKugel {
 		speed = new GLVektor(0,0,0);
 		force = new GLVektor(0,0,0);
 	}
-    public void setMaterial(Material matter) {
+    public void setMaterial(MaterialClass matter) {
         this.matter = matter;
     }
 	public void setMass(double pMass) {

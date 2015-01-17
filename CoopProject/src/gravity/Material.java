@@ -1,16 +1,41 @@
 package gravity;
 
-public class Material {
-	final static float Fe = 55.85F;
-	final static float Au = 196.97F;
-	final static float H = 1.008F;
-	final static float Uuq = 289F;
+public enum Material 
+{
+	Fe("Eisen", 55.85),Au("Gold",196.97),H("Wasserstoff",1.008),Uuq("Ununquadium",289);
 	
-	double dichte;
-	public double getDichte() {
-		return dichte;
+	private double density;
+	private String pName;
+	private String name;
+	
+	private Material(String name, double density)
+	{
+		this("",name,density);
+		setPeriodName(this.name());
 	}
-	public void setDichte(double dichte) {
-		this.dichte = dichte;
+	private Material(String pName, String name, double density)
+	{
+		this.name = name;
+		this.pName = pName;
+		this.density = density;
+	}
+	
+	void setDensity(double density) {
+		this.density = density;
+	}
+	public double getDensity() {
+		return density;
+	}
+	void setName(String name) {
+		this.name = name;
+	}
+	public String getName() {
+		return name;
+	}
+	void setPeriodName(String pName) {
+		this.pName = pName;
+	}
+	public String getPeriodName() {
+		return pName;
 	}
 }
