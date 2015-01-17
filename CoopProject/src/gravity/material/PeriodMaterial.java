@@ -39,19 +39,16 @@ public enum PeriodMaterial implements Material
 
 	@Override
 	public String getName() {
-		// TODO Auto-generated method stub
-		return null;
+		return mc.getName();
 	}
 
 	@Override
 	public String getPeriodName() {
-		// TODO Auto-generated method stub
-		return null;
+		return mc.getPeriodName();
 	}
 
 	@Override
 	public double getDensity() {
-		// TODO Auto-generated method stub
-		return 0;
+		return mc.getDensity();
 	}
 }
