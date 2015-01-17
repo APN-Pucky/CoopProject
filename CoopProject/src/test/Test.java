@@ -16,5 +16,7 @@ public class Test
 		System.out.println(m.getName());
 		System.out.println(m.getPeriodName());
 		System.out.println(m.getDensity());
+		double d = System.nanoTime()/1000D;
+		System.out.println(d);
 	}
 }
