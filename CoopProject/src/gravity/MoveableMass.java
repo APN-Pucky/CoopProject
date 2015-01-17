@@ -1,6 +1,6 @@
 package gravity;
 
-import gravity.material.MaterialClass;
+import gravity.material.Material;
 import GLOOP.GLKugel;
 import GLOOP.GLVektor;
 
@@ -8,9 +8,9 @@ import GLOOP.GLVektor;
 public class MoveableMass extends GLKugel {
 	GLVektor speed, force;
 	double mass;
-	MaterialClass matter;
+	Material matter;
 	
-	public MoveableMass(GLVektor pPosition, MaterialClass matter, double mass) {
+	public MoveableMass(GLVektor pPosition, Material matter, double mass) {
 		super(pPosition, 1);
 		initial();
         setMaterial(matter);
@@ -20,12 +20,12 @@ public class MoveableMass extends GLKugel {
 		speed = new GLVektor(0,0,0);
 		force = new GLVektor(0,0,0);
 	}
-    public void setMaterial(MaterialClass matter) {
+    public void setMaterial(Material matter) {
         this.matter = matter;
     }
 	public void setMass(double pMass) {
 		this.mass = pMass;
-		this.setzeSkalierung(Math.pow((3/4) * mass / matter.getDichte() / Math.PI,1/3));
+		this.setzeSkalierung(Math.pow((3/4) * mass / matter.getDensity() / Math.PI,1/3));
 	}
 	public double getMass()  {
 		return mass;
@@ -34,7 +34,7 @@ public class MoveableMass extends GLKugel {
 	public void setRadius(double pRadius) {
 		this.setzeSkalierung(pRadius);
 		double volume = (4/3) * Math.PI * Math.pow(pRadius, 3);
-		mass = volume * matter.getDichte();
+		mass = volume * matter.getDensity();
 	}
 	synchronized public void setForce(GLVektor pForce) {
 		synchronized(force) {
