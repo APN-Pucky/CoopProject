@@ -6,9 +6,11 @@ import GLOOP.GLVektor;
 
 public class UpdateThread extends ArrayList<MoveableMass> {
 	private static final long serialVersionUID = 1584782928231004369L;
+	long latestCheck;
 	
 	public UpdateThread() {
 		super();
+		latestCheck = System.nanoTime();
 	}
 	public UpdateThread(MoveableMass[] object) {
 		this();
@@ -18,6 +20,14 @@ public class UpdateThread extends ArrayList<MoveableMass> {
 		for(MoveableMass o : object) {
 			this.add(o);
 		}
+	}
+	public void updatePos() {
+		double time = (System.nanoTime() - latestCheck)*1.0 / 1_000_000_000;
+		for(MoveableMass o : this) {
+			o.calcSpeed(time);
+			o.move(time);
+		}
+		latestCheck = System.nanoTime();
 	}
 	public void calcForce() {
 		for(MoveableMass o : this) {
