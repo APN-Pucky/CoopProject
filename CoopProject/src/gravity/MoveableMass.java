@@ -27,7 +27,7 @@ public class MoveableMass extends GLKugel implements Updateable {
     }
 	public void setMass(double pMass) {
 		this.mass = pMass;
-		this.setzeSkalierung(Math.pow((3/4) * mass / matter.getDensity() / Math.PI,1/3));
+		this.setzeSkalierung(Math.pow((3D/4D) * (mass / matter.getDensity()) / Math.PI,1D/3D));
 	}
 	public double getMass()  {
 		return mass;
