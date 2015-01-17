@@ -1,6 +1,6 @@
 package test;
 
-import gravity.Material;
+import gravity.material.PeriodMaterial;
 import GLOOP.GLKugel;
 import GLOOP.GLLicht;
 import GLOOP.GLMaterial;
@@ -10,6 +10,6 @@ public class Test
 {
 	public static void main(String[] args)
 	{
-		System.out.println(Material.Au.getName());
+		System.out.println(PeriodMaterial.Au.getName());
 	}
 }

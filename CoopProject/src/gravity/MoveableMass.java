@@ -1,5 +1,6 @@
 package gravity;
 
+import gravity.material.MaterialClass;
 import GLOOP.GLKugel;
 import GLOOP.GLVektor;
 
