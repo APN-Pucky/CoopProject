@@ -17,8 +17,12 @@ public class RenderUpdateThread extends Thread
 	public void run()
 	{
 		lasttime = System.nanoTime()/1_000_000_000D;
-		long firstTime = System.nanoTime();
+		
+		long firstTime = System.nanoTime();//alles debug
 		int i = 0;
+		double maxTime = 0;
+		double minTime = 1;//ne sekunde wird das wohl nicht dauern ;)
+		
 		while(running)
 		{
 			delta = lasttime;
@@ -28,10 +32,20 @@ public class RenderUpdateThread extends Thread
 			{
 				u.update(delta);//Unabhängig von der Rendergeschwindigkeit bewegen/updaten
 			}
-			if(++i>=1_000_000) {
-				System.out.println(i + " mal - " + (System.nanoTime() - firstTime )/ i + " durchschnitt");
-				i=0; firstTime = System.nanoTime();
+
+			if(delta > maxTime) {
+				maxTime = delta;
 			}
+			if(delta < minTime) {
+				minTime = delta;
+			}
+			if(++i>=1_000_000) {
+				System.out.println("Durchschnitt Nanos: "+(System.nanoTime() - firstTime )/ i + " - MaX: "+ maxTime + " - MiN: " + minTime);
+				i=0; firstTime = System.nanoTime();
+				maxTime = 0;
+				minTime = 1;
+			}
+			
 		}
 	}
 }
