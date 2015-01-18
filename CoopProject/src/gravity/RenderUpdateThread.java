@@ -2,6 +2,8 @@ package gravity;
 
 public class RenderUpdateThread extends Thread
 {
+	double zeitKonstante=1000;
+	
 	boolean running = true;
 	double delta;
 	double lasttime;
@@ -25,7 +27,7 @@ public class RenderUpdateThread extends Thread
 			delta = lasttime;
 			lasttime = System.nanoTime()/1_000_000_000D;
 			delta = lasttime-delta;
-			delta *= 1_000_000/1000D;
+			delta *= zeitKonstante;
 			for(Updateable u : Global.updates)
 			{
 				u.update(delta);//Unabhängig von der Rendergeschwindigkeit bewegen/updaten
@@ -38,7 +40,7 @@ public class RenderUpdateThread extends Thread
 				minTime = delta;
 			}
 			if(++i>=1_000_000) {
-				System.out.println("Durchschnitt Nanos: "+(System.nanoTime() - firstTime )/ i + " - MaX: "+ maxTime + " - MiN: " + minTime);
+				System.out.println("Durchschnitt Nanos: "+(System.nanoTime() - firstTime )/ i + " - MaX: "+ maxTime/zeitKonstante + " - MiN: " + minTime/zeitKonstante);
 				i=0; firstTime = System.nanoTime();
 				maxTime = 0;
 				minTime = 1;
