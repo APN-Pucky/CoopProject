@@ -1,8 +1,5 @@
 package gravity;
 
-import GLOOP.Sys;
-
-
 public class RenderUpdateThread extends Thread
 {
 	boolean running = true;
