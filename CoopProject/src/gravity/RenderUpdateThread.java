@@ -28,6 +28,7 @@ public class RenderUpdateThread extends Thread
 			delta = lasttime;
 			lasttime = System.nanoTime()/1_000_000_000D;
 			delta = lasttime-delta;
+			delta *= 1_000_000/1000D;
 			for(Updateable u : Global.updates)
 			{
 				u.update(delta);//Unabhängig von der Rendergeschwindigkeit bewegen/updaten

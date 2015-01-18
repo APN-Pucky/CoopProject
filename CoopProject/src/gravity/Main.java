@@ -11,9 +11,26 @@ public class Main
 	{
 		new GLSchwenkkamera();
 		new GLLicht();
-		new MoveableMass(new GLVektor(40,10,5),PeriodMaterial.Uuq,100);
-		new MoveableMass(new GLVektor(100,-60,24),PeriodMaterial.H,1000);
-		new MoveableMass(new GLVektor(0,17,5),PeriodMaterial.H,1000);
+		new MoveableMass(new GLVektor(0,0,0),PeriodMaterial.Uuq,100000).setSpeed(new GLVektor(0,0.001,0));
+		new MoveableMass(new GLVektor(10,0,0),PeriodMaterial.H,10).setSpeed(new GLVektor(0,0.002,0));
+		new MoveableMass(new GLVektor(-10,0,0),PeriodMaterial.H,10).setSpeed(new GLVektor(0,-0.002,0));
+		new MoveableMass(new GLVektor(0,10,0),PeriodMaterial.H,10).setSpeed(new GLVektor(-0.002,0,0));
+		new MoveableMass(new GLVektor(0,-10,0),PeriodMaterial.H,10).setSpeed(new GLVektor(0.002,0,0));
+		new MoveableMass(new GLVektor(0,0,-90),PeriodMaterial.Uuq,100000).setSpeed(new GLVektor(-0.001,0,0));
+		new MoveableMass(new GLVektor(10,0,-90),PeriodMaterial.H,10).setSpeed(new GLVektor(0,0.002,0));
+		new MoveableMass(new GLVektor(-10,0,-90),PeriodMaterial.H,10).setSpeed(new GLVektor(0,-0.002,0));
+		new MoveableMass(new GLVektor(0,10,-90),PeriodMaterial.H,10).setSpeed(new GLVektor(-0.002,0,0));
+		new MoveableMass(new GLVektor(0,-10,-90),PeriodMaterial.H,10).setSpeed(new GLVektor(0.002,0,0));
+		new MoveableMass(new GLVektor(0,0,-50),PeriodMaterial.Uuq,100000).setSpeed(new GLVektor(0.001,0,0));
+		new MoveableMass(new GLVektor(10,0,-50),PeriodMaterial.H,10).setSpeed(new GLVektor(0,0.002,0));
+		new MoveableMass(new GLVektor(-10,0,-50),PeriodMaterial.H,10).setSpeed(new GLVektor(0,-0.002,0));
+		new MoveableMass(new GLVektor(0,10,-50),PeriodMaterial.H,10).setSpeed(new GLVektor(-0.002,0,0));
+		new MoveableMass(new GLVektor(0,-10,-50),PeriodMaterial.H,10).setSpeed(new GLVektor(0.002,0,0));
+		new MoveableMass(new GLVektor(0,0,30),PeriodMaterial.Uuq,100000).setSpeed(new GLVektor(0,-0.001,0));
+		new MoveableMass(new GLVektor(10,0,30),PeriodMaterial.H,10).setSpeed(new GLVektor(0,0.002,0));
+		new MoveableMass(new GLVektor(-10,0,30),PeriodMaterial.H,10).setSpeed(new GLVektor(0,-0.002,0));
+		new MoveableMass(new GLVektor(0,10,30),PeriodMaterial.H,10).setSpeed(new GLVektor(-0.002,0,0));
+		new MoveableMass(new GLVektor(0,-10,30),PeriodMaterial.H,10).setSpeed(new GLVektor(0.002,0,0));
 		new RenderUpdateThread().start();
 	}
 }

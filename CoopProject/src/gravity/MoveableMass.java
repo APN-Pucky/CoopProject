@@ -37,6 +37,9 @@ public class MoveableMass extends GLKugel implements Updateable {
 		double volume = (4/3) * Math.PI * Math.pow(pRadius, 3);
 		mass = volume * matter.getDensity();
 	}
+	public void setSpeed(GLVektor pSpeed) {
+		this.speed = pSpeed;
+	}
 	public void setForce(GLVektor pForce) {
 			this.force = pForce;
 	}
@@ -59,7 +62,7 @@ public class MoveableMass extends GLKugel implements Updateable {
 				double distance = ppForce.gibBetrag();
 				ppForce.normalisiere();
 				
-				ppForce.multipliziere(getMass()*p.getMass()/Math.pow(distance, 2));
+				ppForce.multipliziere(0.000000000667284D*(getMass()*p.getMass()/Math.pow(distance, 2)));
 				
 				pForce.addiere(ppForce);
 			}
