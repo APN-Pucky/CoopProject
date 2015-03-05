@@ -2,15 +2,21 @@ package gravity;
 
 public class RenderUpdateThread extends Thread
 {
-	double zeitKonstante=1000;
+	double zeitKonstante=1;
 	
 	boolean running = true;
 	double delta;
 	double lasttime;
-	
+
+
 	public RenderUpdateThread()
 	{
-		super();	
+		super();
+	}
+	public RenderUpdateThread(double speed)
+	{
+		super();
+		this.zeitKonstante = speed;
 	}
 	
 	public void run()

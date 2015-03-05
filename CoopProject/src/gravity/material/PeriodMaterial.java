@@ -11,7 +11,8 @@ public enum PeriodMaterial implements Material
 	Fe(new MaterialClass("Eisen","Fe", 55.85)),
 	Au(new MaterialClass("Gold","Au",196.97)),
 	H(new MaterialClass("Wasserstoff","H",1.008)),
-	Uuq(new MaterialClass("Ununquadium","Uuq",289));
+	Uuq(new MaterialClass("Ununquadium","Uuq",289)),
+	ELECTRON(new MaterialClass("Elektron","e", 5.48579909487313e-7));
 	
 	private Material mc;
 	

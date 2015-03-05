@@ -6,34 +6,34 @@ import GLOOP.GLVektor;
 
 
 public class MoveableMass extends GLKugel implements Updateable {
-	GLVektor speed, force;
+	GLVektor speed = new GLVektor(0,0,0), force = new GLVektor(0,0,0);
 	double mass;
+	double scale = 1;
 	Material matter;
 	
 	public MoveableMass(GLVektor pPosition, Material matter, double mass) {
 		super(pPosition, 1);
-		initial();
         setMaterial(matter);
         setMass(mass);
         Global.mma.add(this);
         Global.updates.add(this);
 	}
-	public void initial() {
-		speed = new GLVektor(0,0,0);
-		force = new GLVektor(0,0,0);
+	public void setScale(double pScale) {
+		this.skaliere(pScale/scale);
+		scale = pScale;
 	}
     public void setMaterial(Material matter) {
         this.matter = matter;
     }
 	public void setMass(double pMass) {
 		this.mass = pMass;
-		this.setzeSkalierung(Math.pow((3D/4D) * (mass / matter.getDensity()) / Math.PI,1D/3D));
+		this.setzeSkalierung((Math.pow((3D/4D) * (mass / matter.getDensity()) / Math.PI,1D/3D))*scale);
 	}
 	public double getMass()  {
 		return mass;
 	}
 	public void setRadius(double pRadius) {
-		this.setzeSkalierung(pRadius);
+		this.setzeSkalierung(pRadius * scale);
 		double volume = (4/3) * Math.PI * Math.pow(pRadius, 3);
 		mass = volume * matter.getDensity();
 	}
