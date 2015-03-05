@@ -12,7 +12,7 @@ public class Main
 		new GLLicht();
 		Elektron e = new Elektron(new GLVektor(0,0,0));
 		e.setSpeed(new GLVektor(1,0,0));
-		e.setScale(1000000);
+		e.setScale(1);
 		
 		Global.electricField.add(new Field() {
 			public GLVektor getVector(GLVektor pos) {

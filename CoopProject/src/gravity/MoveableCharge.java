@@ -46,9 +46,11 @@ public class MoveableCharge extends MoveableMass {
 				e.printStackTrace();
 			}
 	}
-	
+	int i = 0;
+	int j = 0;
 	public void move(double time) {
 		super.move(time);
-		new GLKugel(this.gibPosition(),1);
+		if(i++>10) {
+		new GLKugel(this.gibPosition(),1);i=0;}
 	}
 }
